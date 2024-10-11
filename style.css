@@ -1,0 +1,489 @@
+/*==================== ANIMATIONS ====================*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+.services__container .service__bx {
+    animation-delay: 0.2s; /* Delays the animation for each service */
+}
+
+.about__container .about__bx {
+    animation-delay: 0.2s; /* Delays the animation for each about section */
+}
+
+.service__bx:nth-child(2) {
+    animation-delay: 0.4s; /* Adjusting delay for the second service */
+}
+
+.service__bx:nth-child(3) {
+    animation-delay: 0.6s; /* Adjusting delay for the third service */
+}
+
+.about__bx:nth-child(2) {
+    animation-delay: 0.4s; /* Adjusting delay for the second about section */
+}
+
+.about__bx:nth-child(3) {
+    animation-delay: 0.6s; /* Adjusting delay for the third about section */
+}
+
+/*==================== TITLE SECTION ====================*/
+.section-title {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--white-color);
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s forwards; /* Add fade-in animation */
+}
+
+/*==================== VARIABLES CSS ====================*/
+:root {
+    --text-color: #ffffff; /* White text for contrast */
+    --bg-color: #000000; /* Black background */
+    --dark-color: #2e2e2e; /* Darker background for cards */
+    --dark-alt-color: #777777; /* Gray text color */
+    --white-color: #ffffff; /* White color for text */
+    --clr-1: #89ec5b; /* Green */
+    --clr-2: #eb5ae5; /* Pink */
+    --clr-3: #5b98eb; /* Blue */
+    --transition: 0.5s ease-in-out; /* Transition effect */
+    --body-font: "Poppins", sans-serif; /* Font style */
+    --normal-font-size: 0.938rem; /* Normal font size */
+}
+
+/*==================== BASE STYLES ====================*/
+*,
+*:after,
+*:before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--normal-font-size);
+    background-color: var(--bg-color); /* Black background */
+    color: var(--text-color);
+    font-weight: 400;
+    font-family: var(--body-font);
+    transition: all 0.2s ease;
+}
+
+/*==================== NAVBAR ====================*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--dark-color); /* Same background as service and about sections */
+    color: var(--white-color); /* White text for contrast */
+    box-shadow: 0 2px 10px rgba(95, 230, 95, 0.5); /* Optional shadow for depth */
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between links */
+}
+
+.navbar .nav-links li a {
+    color: var(--white-color); /* White text for links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 1rem;
+    transition: 0.3s; /* Smooth transition for hover effect */
+}
+
+.navbar .nav-links li a:hover {
+    color: var(--clr-1); /* Change color on hover */
+}
+
+/*==================== HERO SECTION ====================*/
+.hero {
+    background-image: url('https://assets.codepen.io/1651485/planet.png'); /* Background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative; /* Position for potential absolute elements */
+}
+
+.hero-content {
+    color: var(--white-color); /* White text */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Stronger shadow for better readability */
+}
+
+.hero-content h1 {
+    font-size: 3rem; /* Large heading */
+    font-weight: 700; /* Bold font */
+    margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.hero-content p {
+    font-size: 1.2rem; /* Slightly larger font for paragraph */
+    margin-bottom: 40px; /* Spacing below the paragraph */
+}
+
+.get-started__button {
+    display: inline-flex; /* Flex for better centering */
+    padding: 15px 30px; /* Padding around the button */
+    background-color: var(--clr-1); /* Green background */
+    color: var(--dark-color); /* Dark text color */
+    border: 2px solid var(--clr-1); /* Border matching the background color */
+    text-decoration: none; /* No underline */
+    font-weight: 500; /* Medium weight font */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.get-started__button:hover {
+    background-color: var(--dark-color); /* Change background color on hover */
+    color: var(--clr-1); /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+/*==================== SERVICES SECTION ====================*/
+.services__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: var(--bg-color);
+}
+.service__bx {
+    height: 350px;
+    width: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-color);
+    transition: var(--transition);
+}
+.service__bx::before,
+.service__bx::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: var(--transition);
+}
+.service__bx::before {
+    inset: -10px 50px;
+    border-top: 4px solid var(--clr);
+    transform: skewY(15deg);
+    border-bottom: 4px solid var(--clr);
+}
+.service__bx:hover::before {
+    inset: -10px 40px;
+    transform: skewY(0deg);
+}
+.service__bx::after {
+    inset: 60px -10px;
+    border-left: 4px solid var(--clr);
+    transform: skew(15deg);
+    border-right: 4px solid var(--clr);
+}
+.service__bx:hover::after {
+    inset: 40px -10px;
+    transform: skew(0deg);
+}
+.service__data {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.service__icon {
+    font-size: 3rem;
+    color: var(--clr);
+}
+.service__bx:hover .service__icon {
+    color: var(--dark-color);
+    background-color: var(--clr);
+    padding: 10px;
+    border-radius: 50%;
+}
+.service__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.service__content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white-color);
+    transition: var(--transition);
+}
+.service__bx:hover .service__content h3 {
+    color: var(--bg-color); /* Disappear by matching background color */
+    transition: var(--transition);
+}
+.service__content p {
+    font-size: 0.9rem;
+    color: var(--dark-alt-color);
+    transition: var(--transition);
+}
+.service__bx:hover .service__content p {
+    color: var(--bg-color); /* Disappear by matching background color */
+    transition: var(--transition);
+}
+
+/*==================== BUTTON STYLES ====================*/
+.service__button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--clr-1);
+    color: var(--dark-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 10px; /* Spacing above the button */
+}
+
+.service__button:hover {
+    background-color: var(--dark-color);
+    color: var(--clr-1);
+    border: 2px solid var(--clr-1); /* Optional border on hover */
+}
+
+
+.about__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    padding: 60px 0;
+    background-color: var(--bg-color);
+}
+.about__bx {
+    height: 350px;
+    width: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--dark-color);
+    transition: var(--transition);
+}
+.about__bx::before,
+.about__bx::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: var(--transition);
+}
+.about__bx::before {
+    inset: -10px 50px;
+    border-top: 4px solid var(--clr);
+    transform: skewY(15deg);
+    border-bottom: 4px solid var(--clr);
+}
+.about__bx:hover::before {
+    inset: -10px 40px;
+    transform: skewY(0deg);
+}
+.about__bx::after {
+    inset: 60px -10px;
+    border-left: 4px solid var(--clr);
+    transform: skew(15deg);
+    border-right: 4px solid var(--clr);
+}
+.about__bx:hover::after {
+    inset: 40px -10px;
+    transform: skew(0deg);
+}
+.about__data {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.about__icon {
+    font-size: 3rem;
+    color: var(--clr);
+}
+.about__bx:hover .about__icon {
+    color: var(--dark-color);
+    background-color: var(--clr);
+    padding: 10px;
+    border-radius: 50%;
+}
+.about__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.about__content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white-color);
+    transition: var(--transition);
+}
+.about__bx:hover .about__content h3 {
+    color: var(--bg-color); /* Disappear by matching background color */
+    transition: var(--transition);
+}
+.about__content p {
+    font-size: 0.9rem;
+    color: var(--dark-alt-color);
+    transition: var(--transition);
+}
+.about__bx:hover .about__content p {
+    color: var(--bg-color); /* Disappear by matching background color */
+    transition: var(--transition);
+}
+
+/*==================== FOOTER ====================*/
+.footer {
+    background-color: var(--dark-color);
+    color: var(--white-color);
+    text-align: center;
+    padding: 20px;
+}
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-content p {
+    margin-bottom: 10px;
+}
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.footer-links li a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links li a:hover {
+    color: var(--clr-1);
+}
+/* Social Icons */
+.social-icon-1,
+.social-icon-1-1,
+.social-icon-2,
+.social-icon-2-2,
+.social-icon-3,
+.social-icon-3-3,
+.social-icon-4,
+.social-icon-4-4 {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  margin: 20px 0 0px 0;
+}
+
+.icon svg {
+  fill: #f0efef;
+}
+
+.socialcontainer {
+  height: 80px;
+  overflow: hidden;
+}
+
+.social-icon-1 {
+  transition-duration: 0.4s;
+  background-color: rgb(0, 0, 0);
+  transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+}
+
+.social-icon-1 svg,
+.social-icon-2 svg,
+.social-icon-3 svg,
+.social-icon-4 svg {
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
+}
+
+.socialcontainer:hover .social-icon-1 {
+  transform: translateY(-70px);
+}
+
+.socialcontainer:hover .social-icon-1 svg,
+.socialcontainer:hover .social-icon-2 svg,
+.socialcontainer:hover .social-icon-3 svg,
+.socialcontainer:hover .social-icon-4 svg {
+  opacity: 1;
+}
+
+.social-icon-2 {
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  background: linear-gradient(72.44deg, #ff7a00 11.92%, #ff0169 51.56%, #d300c5 85.69%);
+}
+
+.socialcontainer:hover .social-icon-2 {
+  transform: translateY(-70px);
+}
+
+.social-icon-3 {
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  background: #316ff6;
+}
+
+.socialcontainer:hover .social-icon-3 {
+  transform: translateY(-70px);
+}
+
+.social-icon-4 {
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0.46, -0.78, 0.5, 1.56);
+  background-color: #191919;
+}
+
+.socialcontainer:hover .social-icon-4 {
+  transform: translateY(-70px);
+}
